@@ -1,0 +1,943 @@
+/* Variabel Root untuk Mengatur Warna, Font, dan Background Image */
+:root {
+    --primary-color: #DEE5EC;
+    --secondary-color: #212937;
+    --background-color: #f0f0f0;
+    --font-family: "Cantata One", serif;
+    --font-family-2: "Lato", sans-serif;
+    --cover-bg-image: url('cover.jpeg');
+    --section-1: url('section1.jpeg');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* NAVIGASI */
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 350px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    z-index: 1000;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 10px; /* Jarak antar ikon */
+    justify-content: center;
+    margin: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 20px; /* Ukuran ikon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #C0C5D2; /* Warna teks saat hover */
+  }
+  
+  /* Tambahan untuk ikon play/pause */
+  #playPauseButton {
+    cursor: pointer;
+  }
+
+
+/* ANIMASI */
+.fade-in {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+.fade-slide {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.fade-slide.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animasi swipe dari kiri */
+.swipe-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.swipe-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Animasi swipe dari kanan */
+.swipe-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.swipe-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Animasi swipe dari bawah */
+.swipe-up {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.swipe-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animasi swipe dari atas */
+.swipe-down {
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.swipe-down.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animasi pop-up */
+.pop-up {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.pop-up.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.swipe-up-cover {
+    transform: translateY(-100%); /* Menggerakkan elemen ke atas */
+}
+
+
+/* COVER */
+.swipe-up-cover {
+    transform: translateY(-100%); /* Menggerakkan elemen ke atas */
+}
+
+#cover {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-image: var(--cover-bg-image);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding-bottom: 170px;
+    transition: transform 2s ease-in-out;
+}
+
+#cover::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* Warna hitam dengan transparansi 50% */
+    z-index: 0;
+}
+
+#cover > * {
+    position: relative;
+    z-index: 1;
+}
+
+#brideGroom {
+    font-size: 2em;
+    margin-bottom: 10px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-style: normal;
+}
+
+#cover button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 0.8em;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+#cover button:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Undangan Sections */
+#invitation {
+    display: none;
+    text-align: center;
+    max-width: 400px;
+}
+
+#invitation h2 {
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+#invitation p {
+    font-family: var(--font-family-2);
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* SECTION 1 */
+#section1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 170px;
+    text-align: center;
+    background-image: var(--section-1); /* Ganti dengan path gambar Anda */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    height: 100vh;
+}
+
+#section1::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* Overlay hitam dengan transparansi 50% */
+    z-index: 0;
+}
+
+#section1 > * {
+    position: relative;
+    z-index: 1;
+}
+
+#section1 h2 {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.wedding-date {
+    font-size: 1em;
+    color: white;
+    letter-spacing: 2px;
+}
+
+/* SECTION 2 */
+#section2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 40px 20px;
+    height: auto;
+    gap: 20px;
+}
+
+#section2 h2 {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.6em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.opening-section2 {
+    font-size: 1em;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    line-height: 1;
+}
+
+.bride-section .photo,
+.groom-section .photo {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.separator {
+    width: 150px;
+    height: 2px;
+    background-color: var(--secondary-color);
+    margin: 10px auto;
+}
+
+.separator2 {
+    width: 100px;
+    height: 2px;
+    background-color: var(--secondary-color);
+    margin: 10px auto;
+}
+
+/* Style untuk bride-section */
+.bride-section .separator {
+    margin-left: auto;      /* Mengatur margin kiri */
+    margin-right: 0;  /* Memaksa separator ke kiri */
+    margin-bottom: 5px;
+}
+
+/* Style untuk groom-section */
+.groom-section .separator {
+    margin-left: 0;   /* Memaksa separator ke kanan */
+    margin-right: auto;     /* Mengatur margin kanan */
+    margin-bottom: 5px;
+}
+
+/* Style untuk bride-section */
+.bride-section .separator2 {
+    margin-left: auto;      /* Mengatur margin kiri */
+    margin-right: 0;  /* Memaksa separator ke kiri */
+    margin-top: 0;
+}
+
+/* Style untuk groom-section */
+.groom-section .separator2 {
+    margin-left: 0;   /* Memaksa separator ke kanan */
+    margin-right: auto;     /* Mengatur margin kanan */
+    margin-top: 0;
+}
+
+
+.bride-section h3,
+.groom-section h3 {
+    font-size: 1.4em;
+    color: var(--secondary-color);
+    margin-top: 25px;
+    margin-bottom: 20px;;
+}
+
+.bride-section p,
+.groom-section p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 5px 0;
+}
+
+.social-media {
+    font-size: 0.9em;
+    margin-top: 30px;
+}
+
+.social-media i {
+    color: #E4405F; /* Warna Instagram */
+    margin-right: 5px;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+/* Atur posisi rata kanan untuk pengantin wanita */
+.bride-section {
+    justify-content: flex-end;
+    align-content: flex-end;
+    text-align: right;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+/* Atur posisi rata kiri untuk pengantin pria */
+.groom-section {
+    justify-content: flex-start;
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.and {
+    font-size: 5em;
+    font-family: var(--font-family);
+    color: var(--primary-color)
+}
+
+/* SECTION 3 */
+#section3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 40px 20px;
+    font-family: var(--font-family-2);
+    font-weight: 400;
+    font-style: normal;
+}
+
+#section3 h2 {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.6em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.photo {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 20px;
+}
+
+#section3 p {
+    font-size: 0.8em;
+    max-width: 300px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: transparent;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.time-unit {
+    background-color: rgba(0, 0, 0, 0.1); /* Transparent background */
+    padding: 15px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.number {
+    font-size: 0.8em;
+    color: var(--secondary-color);
+}
+
+.label {
+    font-size: 0.4em;
+    color: var(--secondary-color);
+    margin-top: 5px;
+}
+
+.event-details {
+    margin-top: 20px;
+}
+
+.separator {
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-color);
+    margin: 20px auto;
+}
+
+.event {
+    margin-bottom: 30px;
+}
+
+.event h3 {
+    font-family: var(--font-family);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    margin-top: 60px;
+}
+
+.event-day {
+    font-family: var(--font-family-2);
+}
+
+.date-time {
+    margin-bottom: 5px;
+}
+
+.date {
+    font-size: 2.5em;
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.lokasi-acara {
+    font-weight: 800;
+}
+
+.location i {
+    color: var(--secondary-color); /* Color for the location icon */
+    margin-top: 15px;
+    font-size: 1.5em;
+}
+
+.location p {
+    margin: 0;
+    padding: 0;
+}
+
+.location-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+.location-button:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+/* SECTION 4 */
+#section4 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 0;
+}
+.masonry {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+}
+
+.item {
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.wide {
+    grid-column: span 2; /* takes two columns */
+}
+
+.full {
+    grid-column: span 1; /* Mengambil kedua kolom untuk full width */
+    grid-row: span 3;
+}
+
+/* modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+.modal.active { display: flex; }
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+.modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.close, .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 20;
+}
+.close { right: 16px; top: 16px; transform: none; }
+.prev { left: 16px; }
+.next { right: 16px; }
+
+/* SECTION 5 */
+#section5 {
+    position: relative;
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+    background-image: url('image5.jpeg'); /* Path to background image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+/* Overlay styling */
+#section5 .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Content styling */
+#section5 .content {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    padding: 20px;
+}
+
+.verse-translation {
+    font-size: 0.6em;
+    font-family: var(--font-family-2);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.verse-reference {
+    font-size: 0.8em;
+    font-weight: bold;
+    font-family: var(--font-family2);
+    letter-spacing: 1px;
+}
+
+/* SECTION 6 GIFT */
+#section6 {
+    margin-top: 10px;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+#section6 h2 {
+    font-size: 2em;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.gift-message {
+    font-size: 0.8em;
+    color: white;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1;
+}
+
+.bank-details {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.bank-card {
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+}
+
+.bank-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.bank-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+
+.account-holder, .account-number {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    margin: 5px 0;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+/* SECTION 7 */
+#section7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px;
+    text-align: center;
+  }
+  
+  #section7 h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+  }
+  
+  #rsvpForm {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  #rsvpForm .form-group {
+    margin-bottom: 20px;
+  }
+  
+  #rsvpForm input, #rsvpForm textarea, #rsvpForm select {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-family-2);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  #rsvpForm button {
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+  
+  #rsvpForm button:hover {
+    background-color: #f3f3f3;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+  }
+  
+  #messageList {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    overflow-y: auto;
+    border-radius: 8px;
+  }
+  
+  .message-item {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  #messageList .message-item {
+    font-family: var(--font-family-2);
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  
+  }
+  
+  .timestamp {
+    font-size: 12px;
+    color: #888;
+    bottom: 8px;
+    right: 12px;
+    font-style: italic;
+    margin: 0 0 15px 0;
+}
+
+.name {
+    font-size: 1rem;
+    margin: 0;
+}
+  
+.message {
+    font-size: 0.7em;
+    margin: 10px 0 10px 0;
+}
+
+.empty-message {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+}
+
+
+/* SECTION 8 */
+#section8 {
+    position: relative;
+    background-image: url('image1.jpeg'); /* Ganti dengan path gambar background */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#section8 .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.thank-you-content {
+    text-align: center;
+    z-index: 1;
+    margin: 100px 0 0 0;
+}
+
+#section8 h2 {
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.thank-you-content p {
+    font-style: var(--font-family-2);
+    font-size: 1em;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: #f4f4f4;
+    padding-bottom: 50px;
+    padding-top: 15px;
+}
+  
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+  
+.logo img {
+    height: 40px;
+}
+  
+.social-media-ncp {
+    display: flex;
+}
+  
+  .social-icon {
+    color: var(--secondary-color); /* Warna ikon */
+    font-size: 24px; /* Ukuran ikon */
+    margin-left: 15px; /* Jarak antar ikon */
+    text-decoration: none; /* Menghilangkan garis bawah */
+  }
+  
+  .social-icon:hover {
+    color: var(--primary-color); /* Warna saat hover */
+  }
+

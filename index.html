@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+    <meta property="og:title" content="Wedding Invitation">
+    <meta property="og:description" content="Undangan Pernikahan Rifai & Putri">
+    <meta property="og:image" content="image7.jpeg"> <!-- Specify the URL of your preview image -->
+    <meta property="og:image:width" content="50"> <!-- Width of the image in pixels -->
+    <meta property="og:image:height" content="50"> <!-- Height of the image in pixels -->
+    <link rel="icon" href="logo2.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cantata+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cover -->
+    <div id="cover">
+        <h2 id="brideGroom">RIFAI & PUTRI</h2>
+        <p>Kepada Yth.</p>
+        <h3 id="guestName"></h3>
+        <button id="openInvitation">Buka Undangan</button>
+    </div>
+
+    <!-- Undangan Sections -->
+    <div id="invitation">
+            <!-- NAVIGASI -->
+        <nav>
+            <ul>
+            <li><a href="#section1"><i class="fas fa-home"></i></a></li>
+            <li><a href="#section2"><i class="fas fa-user"></i></a></li>
+            <li><a href="#section3"><i class="fas fa-calendar"></i></a></li>
+            <li><a href="#section7"><i class="fas fa-envelope"></i></a></li>
+            <li><a href="#section6"><i class="fas fa-gift"></i></a></li>
+            <!-- Tambahkan tombol play/pause di sini -->
+            <li><a href="javascript:void(0)" id="playPauseButton">
+                <i id="playPauseIcon" class="fas fa-pause"></i>
+            </a></li>
+            </ul>
+        </nav>
+      
+        <!-- Elemen audio -->
+        <audio id="weddingMusic" src="Take Me to Your Heart.m4a"></audio> <!-- Ganti dengan URL musik -->
+        <!-- Section 1 -->
+        <section id="section1">
+            <h2 class="pop-up">RIFAI & PUTRI</h2>
+            <p class="wedding-date pop-up">06 • 04 • 25</p>
+        </section>
+        <!-- Section 2 -->
+        <section id="section2">
+            <h2 class="pop-up">THE WEDDING OF</h2>
+            <p class="opening-section2 pop-up">Ya Allah, dengan segala kesucian hati, kami bersujud memohon Ridho-Mu, untuk menuju Sunnah Rasul-Mu, membentuk keluarga sakinah, mawaddah, warohmah.</p>
+
+            <div class="groom-section">
+                <img src="husband.jpeg" alt="Groom's Photo" class="photo  swipe-left">
+                <div class="separator  swipe-left"></div>
+                <div class="separator2  swipe-left"></div>
+                <h3 class="swipe-left">MA'RUF RIFAI</h3>
+                <div class="parent-name  swipe-left">
+                    <p>Putra Kedua dari</p>
+                    <p>Bapak Samuji (Alm) &</p>
+                    <p>Ibu Jam'ati</p>
+                </div>
+                <!-- <div class="social-media swipe-left">
+                    <i class="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/yogimalaka2023/profilecard/?igsh=d2Q5dWp2eXh5bHZt" target="_blank" rel="noopener noreferrer">
+                        @yogimalaka2023
+                    </a>
+                </div>               -->
+            </div>
+
+            <h3 class="and pop-up">&</h3>
+
+            <div class="bride-section">
+                <img src="wife.jpeg" alt="Bride's Photo" class="photo  swipe-right">
+                <div class="separator  swipe-right"></div>
+                <div class="separator2  swipe-right"></div>
+                <h3 class=" swipe-right">DWI PUTRI ASIH</h3>
+                <div class="parent-name  swipe-right">
+                    <p>Putri Kedua dari</p>
+                    <p>Bapak Rawin (Alm) &</p>
+                    <p>Ibu Kumirah</p>
+                </div>
+                <!-- <div class="social-media swipe-right">
+                    <i class="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/ptryc__/profilecard/?igsh=MTNlNWFnYTlqYTl1cw==" target="_blank" rel="noopener noreferrer">
+                        @ptryc__
+                    </a>
+                </div>  -->
+            </div>
+        </section>
+
+        <section id="section3">
+            <h2 class="pop-up">SAVE THE DATE</h2>
+            <img src="image7.jpeg" alt="Wedding Couple" class="photo pop-up">
+            <p class="pop-up">Dengan memohon ridho dan rahmat Allah, kami berharap kehadiran Anda di acara istimewa kami.</p>
+            
+            <div id="countdown" class="countdown pop-up">
+                <div class="time-unit">
+                    <span id="days" class="number"></span>
+                    <div class="label">Hari</div>
+                </div>
+                <div class="time-unit">
+                    <span id="hours" class="number"></span>
+                    <div class="label">Jam</div>
+                </div>
+                <div class="time-unit">
+                    <span id="minutes" class="number"></span>
+                    <div class="label">Menit</div>
+                </div>
+                <div class="time-unit">
+                    <span id="seconds" class="number"></span>
+                    <div class="label">Detik</div>
+                </div>
+            </div>
+            
+            
+            <div class="event-details">
+                <div class="event">
+                    <h3 class="pop-up">AKAD NIKAH</h3>
+                    <p class="event-day"><strong>MINGGU</strong></p>
+                    <div class="date-time pop-up">
+                        <span id="akad-date" class="date pop-up"><span class="wedding-date-count" data-target="06">0</span>.04.25</span>
+                        <p class="time pop-up">09:00 WIB - SELESAI</p>
+                    </div>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt pop-up"></i>
+                        <p class="lokasi-acara pop-up">Kediaman Mempelai Wanita</p>
+                        <p class="alamat pop-up">Rt/06 Rw/02 Dusun Pejalaran Desa Kendaldoyong Kec. Petarukan Kab. Pemalang</p>
+                        <a href="https://maps.app.goo.gl/YMMVy2k8qp5kAxQn7" class="location-button pop-up" target="_blank" rel="noopener noreferrer">Akses Lokasi</a>
+                    </div>
+                </div>
+        
+                <div class="separator pop-up"></div>
+        
+                <div class="event">
+                    <h3 class="pop-up">RESEPSI</h3>
+                    <p class="event-day"><strong>MINGGU</strong></p>
+                    <div class="date-time pop-up">
+                        <span id="resepsi-date" class="date pop-up"><span class="wedding-date-count" data-target="06">0</span>.04.25</span>
+                        <p class="time pop-up">11:00 WIB - SELESAI</p>
+                    </div>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt pop-up"></i>
+                        <p class="lokasi-acara pop-up">Kediaman Mempelai Wanita</p>
+                        <p class="alamat pop-up">Rt/06 Rw/02 Dusun Pejalaran Desa Kendaldoyong Kec. Petarukan Kab. Pemalang</p>
+                        <a href="https://maps.app.goo.gl/YMMVy2k8qp5kAxQn7" class="location-button pop-up" target="_blank" rel="noopener noreferrer">Akses Lokasi</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="section4">
+            <div class="masonry">
+                <div class="item pop-up"><img src="image1.jpeg" alt="Photo 1"></div>
+                <div class="item pop-up"><img src="image2.jpeg" alt="Photo 2"></div>
+                <div class="item pop-up"><img src="image3.jpeg" alt="Photo 3"></div>
+                <div class="item pop-up"><img src="image4.jpeg" alt="Photo 4"></div>
+                <div class="item pop-up"><img src="image5.jpeg" alt="Photo 5"></div>
+                <div class="item pop-up"><img src="image6.jpeg" alt="Photo 6"></div>
+                <div class="item pop-up"><img src="image7.jpeg" alt="Photo 7"></div>
+                <div class="item pop-up"><img src="image8.jpeg" alt="Photo 8"></div>
+                <div class="item pop-up"><img src="image9.jpeg" alt="Photo 9"></div>
+                <div class="item pop-up"><img src="image10.jpeg" alt="Photo 10"></div>
+                <div class="item pop-up"><img src="image11.jpeg" alt="Photo 11"></div>
+                <div class="item pop-up"><img src="image12.jpeg" alt="Photo 12"></div>
+                <!-- Tambahkan lebih banyak item sesuai kebutuhan -->
+            </div>
+        </section>
+
+        <div id="modal" class="modal">
+            <span class="close">&times;</span>
+            <span class="prev">&#10094;</span>
+            <div class="modal-content">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <span class="next">&#10095;</span>
+        </div>
+               
+        <section id="section5">
+            <div class="overlay">
+                <div class="content">
+                    <p class="verse-translation pop-up">
+                        “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri, 
+                        supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. 
+                        Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir.”
+                    </p>
+                    <p class="verse-reference pop-up">QS. AR-RUM AYAT 21</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="section6">
+            <h2 class="pop-up">LOVE GIFT</h2>
+            <p class="gift-message pop-up">
+                Doa restu anda merupakan karunia yang sangat berarti bagi kami dan jika memberi adalah ungkapan tanda terima kasih anda, 
+                anda dapat memberi kado secara cashless.
+            </p>
+            
+            <div class="bank-details">
+                <div class="bank-card pop-up">
+                    <img src="bri.png" alt="Bank Logo" class="bank-logo" />
+                    <p class="account-holder">Dwi Putri Asih</p>
+                    <p class="account-number">332001014417539</p>
+                    <button onclick="copyAccountNumber('332001014417539')"><i class="fa fa-copy"></i> Salin</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="section7">
+            <h2>DOA & UCAPAN</h2>
+          
+            <!-- Form to submit RSVP and messages -->
+            <form id="rsvpForm">
+              <div class="form-group pop-up">
+                <input type="text" id="guestNameRSVP" placeholder="Nama" required>
+              </div>
+              <div class="form-group pop-up">
+                <textarea id="guestMessage" placeholder="Doa & Ucapan" required></textarea>
+              </div>
+              <div class="form-group pop-up">
+                <select id="attendance" required>
+                  <option value="">Konfirmasi Kehadiran</option> <!-- Menambahkan opsi kosong -->
+                  <option value="Hadir">Hadir</option>
+                  <option value="Tidak Hadir">Tidak Hadir</option>
+                  <option value="Insyaallah">Insyaallah</option>
+                </select>
+              </div>
+              <button type="submit">Kirim</button>
+            </form>
+            
+            <div id="messageList" class="pop-up">
+                <p id="emptyMessage" class="empty-message">Pesan akan tampil di sini.</p>
+            </div>
+          </section>
+          
+          <section id="section8">
+            <div class="overlay">
+                <div class="thank-you-content pop-up">
+                    <p>Thank You</p>
+                    <h2>RIFAI & PUTRI</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <div class="logo pop-up">
+                    <img src="nc logo.png" alt="Logo" />
+                </div>
+                <div class="social-media-ncp pop-up">
+                    <a href="https://www.facebook.com/profile.php?id=61560664461271&mibextid=LQQJ4d" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/nicwaproject?igsh=enk4YWxoa24zNzY5&utm_source=qr" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/+6285974176110" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://nicwaproject.github.io/NicwaProject-Store/" target="_blank" class="social-icon"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+        </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
